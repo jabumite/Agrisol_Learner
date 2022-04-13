@@ -24,5 +24,4 @@ export class PricingComponent implements OnInit {
     this.cartService.addRoom(room);
     
   }
-
 }
