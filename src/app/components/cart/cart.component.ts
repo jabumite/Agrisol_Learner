@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RoomModel } from 'src/app/models/roomModel';
 import { CartService } from 'src/app/services/cart.service';
+import { FileUpLoader } from 'ng-file-upload/ng2-fileupload';
 
 @Component({
   selector: 'app-cart',
@@ -19,6 +20,9 @@ export class CartComponent implements OnInit {
         this.rooms = rooms;
         rooms.forEach(room => this.total += room.price);
       });
+
+
+}      
   }
 
 }

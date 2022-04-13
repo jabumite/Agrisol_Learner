@@ -14,7 +14,7 @@
         <td>{{room.numberOfBeds}} {{room.bedType}}</td>
         <td>R{{room.price}} per night</td>
         <td>{{room.description}}</td>
-        <td><button class="btn btn-success" (click)="selectClicked(room)">select</button></td>
+        <td><button class="btn btn-success" (click)="selectClicked(room)", (click)="selectImage(roomImage)">select</button></td>
     </tr>
    </tbody>
     
