@@ -3,6 +3,5 @@ export class RoomModel {
     numberOfBeds: number = 0;
     bedType: string = "";
     price: number = 0;
-    description: string = "";
-    image?: File 
+    description: string = ""; 
 }

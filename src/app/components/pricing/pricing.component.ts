@@ -9,6 +9,24 @@ import { RoomService } from 'src/app/services/room.service';
   styleUrls: ['./pricing.component.sass']
 })
 export class PricingComponent implements OnInit {
+  imageWidth: number = 300;
+  imageMargin: number = 2;
+  showImage: boolean = false;
+
+  images: any[] = [
+    { 
+      "roomName": "Double Kamer",
+      "imageUrl": "assets/images/Double_kamer.jpg"
+    },
+    {
+      "roomName": "Familie Kamer",
+      "imageUrl": "assets/images/Familie_kamer.jpg"
+    }
+  ];
+
+  toggleImage(): void{
+    this.showImage = !this.showImage;
+  }
 
   rooms: RoomModel[] = [];
 
