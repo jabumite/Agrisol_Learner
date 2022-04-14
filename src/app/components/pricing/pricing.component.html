@@ -14,7 +14,8 @@
         <td>{{room.numberOfBeds}} {{room.bedType}}</td>
         <td>R{{room.price}} per night</td>
         <td>{{room.description}}</td>
-        <td><button class="btn btn-success" (click)="selectClicked(room)", (click)="selectImage(roomImage)">select</button></td>
+        <td><button class="btn btn-success" (click)="selectClicked(room)">select</button></td>
+        <td><button class="btn btn-primary" (click)='toggleImage()'>show room</button></td>
     </tr>
    </tbody>
     
@@ -24,4 +25,15 @@
     <div>
         {{selectedRoom?.name}}
     </div>
+
+    <div *ngFor="let image of images">
+        <img *ngIf='showImage'
+                [src]='image.imageUrl'
+                [title]='image.roomName'
+                [style.width.px]='imageWidth'
+                [style.margin.px]='imageMargin'>
+    </div>
+        
+    
+        
 

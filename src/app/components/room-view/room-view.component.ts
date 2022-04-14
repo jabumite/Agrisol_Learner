@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoomViewComponent implements OnInit {
 
+ 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
   }
-
 }
