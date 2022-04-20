@@ -1,22 +1,23 @@
 <div class="container-fluid" style="padding-top:20px">
     <div class="row">
-        <div class="col">
+        <div class="col-8">
             <h3>Alma Mater Gueshouse - Available Rooms</h3>
-            
-                <div class="card" style="width: 18rem;"  *ngFor=" let room of rooms; let i = index">
-                    <img src={{room.images}} class="card-img-top" alt={{room.name}}>
-                    <div class="card-body">
-                        <h4 class="card-title">{{room.name}}</h4>
-                        <h5 class="card-subtitle">R{{room.price}} per night</h5>
-                        <p class="card-text">{{room.description}}</p>
-                        <a  class="btn btn-primary" (click)="selectClicked(room, i)">Select</a>
-                    </div>  
-    </div>
+            <div class="row"> 
+                <div   *ngFor=" let room of availableRooms; let i = index" class="col">
+                    <div class="card d-inline-block" style="width: 18rem;">
+                        <img src={{room.images}} class="card-img-top" alt={{room.name}}>
+                        <div class="card-body">
+                            <h4 class="card-title">{{room.name}}</h4>
+                            <h5 class="card-subtitle">R{{room.price}} per night</h5>
+                            <p class="card-text">{{room.description}}</p>
+                            <a  class="btn btn-primary" (click)="selectClicked(room, i)">Select</a>
+                        </div>  
+                    </div>       
+                </div>
+            </div>
+                
         </div>
       
-        
-    
-
         <div class="col-4">
             <div>
                <table>
@@ -24,7 +25,14 @@
                     <tr><h3>Selected Rooms</h3></tr>
                 </thead>
                 <tbody>
-                    <tr></tr>
+                    <div *ngFor=" let room of selectedRooms; let i = index" class="row">
+                        <div>
+                            <h4 class="card-title">{{room.name}}</h4>
+                            <h5 class="card-subtitle">R{{room.price}} per night</h5>
+                            <p class="card-text">{{room.description}}</p>
+                            <a  class="btn btn-primary" (click)="removeClicked(room, i)">Remove selected</a>
+                        </div>
+                    </div>
                 </tbody>
                </table>
             </div>

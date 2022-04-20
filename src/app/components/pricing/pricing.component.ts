@@ -10,25 +10,29 @@ import { RoomService } from 'src/app/services/room.service';
 })
 export class PricingComponent implements OnInit {
  
-  rooms: RoomModel[] = [];
+  availableRooms: RoomModel[] = [];
 
-  selectedRoom! :RoomModel;
+  selectedRooms:RoomModel[] = [];
+
 
   constructor(private roomService: RoomService, private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.rooms = [...this.roomService.availableRooms];
-  }
-
-  selectClicked(room: RoomModel, index: number){
-    this.cartService.addRoom(room);
-    this.selectedRoom = room;
-    this.rooms.splice(index,1);
-    console.log(this.roomService.availableRooms);
+    this.availableRooms = [...this.roomService.availableRooms];
     
   }
 
+  selectClicked(room: RoomModel, index: number){
+    this.selectedRooms.push(room);
+    this.availableRooms.splice(index,1);
+  }
+
+  removeClicked(room: RoomModel, index: number){
+    this.availableRooms.push(room);
+    this.selectedRooms.splice(index,1);
+  }
+
  reset(){
-  this.rooms = [...this.roomService.availableRooms];
+  this.availableRooms = [...this.roomService.availableRooms];
  }
 }
