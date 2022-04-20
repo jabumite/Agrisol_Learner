@@ -13,5 +13,10 @@ export class CartService {
     rooms.push(room);
     this.bookedRooms$.next(rooms);
   }
+  removeRoom(room: RoomModel){
+   // const rooms = 
+
+  }
+
   constructor() { }
 }

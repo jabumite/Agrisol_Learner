@@ -21,7 +21,6 @@ export class CartComponent implements OnInit {
         rooms.forEach(room => this.total += room.price);
       });
 
-
 }      
   }
 

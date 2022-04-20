@@ -1,39 +1,39 @@
-<div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Room</th>
-                <th>Beds</th>
-                <th>Price</th>
-                <th>Description</th>
-            </tr>    
-        </thead>
-   <tbody>
-    <tr *ngFor = "let room of rooms">
-        <td>{{room.name}}</td>
-        <td>{{room.numberOfBeds}} {{room.bedType}}</td>
-        <td>R{{room.price}} per night</td>
-        <td>{{room.description}}</td>
-        <td><button class="btn btn-success" (click)="selectClicked(room)">select</button></td>
-        <td><button class="btn btn-primary" (click)='toggleImage()'>show room</button></td>
-    </tr>
-   </tbody>
-    
-    </table>
-    </div> 
-
-    <div>
-        {{selectedRoom?.name}}
+<div class="container-fluid" style="padding-top:20px">
+    <div class="row">
+        <div class="col">
+            <h3>Alma Mater Gueshouse - Available Rooms</h3>
+            
+                <div class="card" style="width: 18rem;"  *ngFor=" let room of rooms; let i = index">
+                    <img src={{room.images}} class="card-img-top" alt={{room.name}}>
+                    <div class="card-body">
+                        <h4 class="card-title">{{room.name}}</h4>
+                        <h5 class="card-subtitle">R{{room.price}} per night</h5>
+                        <p class="card-text">{{room.description}}</p>
+                        <a  class="btn btn-primary" (click)="selectClicked(room, i)">Select</a>
+                    </div>  
     </div>
-
-    <div *ngFor="let image of images">
-        <img *ngIf='showImage'
-                [src]='image.imageUrl'
-                [title]='image.roomName'
-                [style.width.px]='imageWidth'
-                [style.margin.px]='imageMargin'>
-    </div>
+        </div>
+      
         
     
-        
+
+        <div class="col-4">
+            <div>
+               <table>
+                <thead>
+                    <tr><h3>Selected Rooms</h3></tr>
+                </thead>
+                <tbody>
+                    <tr></tr>
+                </tbody>
+               </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  
+    
+        <button style="margin:20px" (click)="reset()">reset</button>
 

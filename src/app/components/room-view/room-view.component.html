@@ -1,0 +1,15 @@
+<div *ngIf="room">
+    {{room?.name}}
+
+    <div *ngFor="let image of room.images">
+        
+        <img 
+                [src]='image'
+                [title]='room.name'
+                [style.width.px]='imageWidth'
+                [style.margin.px]='imageMargin'>
+    </div>
+</div>
+
+
+    

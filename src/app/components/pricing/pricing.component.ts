@@ -9,37 +9,26 @@ import { RoomService } from 'src/app/services/room.service';
   styleUrls: ['./pricing.component.sass']
 })
 export class PricingComponent implements OnInit {
-  imageWidth: number = 300;
-  imageMargin: number = 2;
-  showImage: boolean = false;
-
-  images: any[] = [
-    { 
-      "roomName": "Double Kamer",
-      "imageUrl": "assets/images/Double_kamer.jpg"
-    },
-    {
-      "roomName": "Familie Kamer",
-      "imageUrl": "assets/images/Familie_kamer.jpg"
-    }
-  ];
-
-  toggleImage(): void{
-    this.showImage = !this.showImage;
-  }
-
+ 
   rooms: RoomModel[] = [];
 
-  selectedRoom :RoomModel | undefined;
+  selectedRoom! :RoomModel;
 
   constructor(private roomService: RoomService, private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.rooms = this.roomService.availableRooms;
+    this.rooms = [...this.roomService.availableRooms];
   }
 
-  selectClicked(room: RoomModel){
+  selectClicked(room: RoomModel, index: number){
     this.cartService.addRoom(room);
+    this.selectedRoom = room;
+    this.rooms.splice(index,1);
+    console.log(this.roomService.availableRooms);
     
   }
+
+ reset(){
+  this.rooms = [...this.roomService.availableRooms];
+ }
 }

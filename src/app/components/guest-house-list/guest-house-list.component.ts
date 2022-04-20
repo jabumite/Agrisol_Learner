@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GuestHouseListComponent implements OnInit {
 
-  guestHouses = [{name: "On Golden Pond", numberOfGuest: 5},  
-  {name: "City Lodge", numberOfGuest: 8}, 
-  {name:"BON Hotel", numberOfGuest: 7}];
+  guestHouses = [{name: "Alma Mater Guesthouse", numberOfGuest: 6},
+  {name: "On Golden Pond", numberOfGuest: 11},  
+  {name: "2 Owls Guesthouse", numberOfGuest: 13}, 
+  {name:"Anne's Place", numberOfGuest: 8}];
   
   constructor() { }
 
