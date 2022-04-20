@@ -34,5 +34,6 @@ export class PricingComponent implements OnInit {
 
  reset(){
   this.availableRooms = [...this.roomService.availableRooms];
+  this.selectedRooms = [...this.roomService.selectedRooms];
  }
 }

@@ -19,23 +19,30 @@
         </div>
       
         <div class="col-4">
-            <div>
-               <table>
-                <thead>
-                    <tr><h3>Selected Rooms</h3></tr>
-                </thead>
-                <tbody>
-                    <div *ngFor=" let room of selectedRooms; let i = index" class="row">
-                        <div>
-                            <h4 class="card-title">{{room.name}}</h4>
-                            <h5 class="card-subtitle">R{{room.price}} per night</h5>
-                            <p class="card-text">{{room.description}}</p>
-                            <a  class="btn btn-primary" (click)="removeClicked(room, i)">Remove selected</a>
-                        </div>
-                    </div>
-                </tbody>
-               </table>
-            </div>
+                <h3>Selected Rooms</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Room</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor=" let room of selectedRooms; let i = index">
+                            <td>{{room.name}}</td>
+                            <td>R{{room.price}} per night</td>
+                            <td>{{room.description}}</td>
+                            <td  class="btn btn-primary" (click)="removeClicked(room, i)">Remove selected</td>
+                    </tr>
+                    <tr>
+                        <td><b>Total:</b></td>
+                        <td><app-cart></app-cart></td>
+                    
+                    </tr>
+                    </tbody>
+                </table>
         </div>
     </div>
 </div>
